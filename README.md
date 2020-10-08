@@ -2,7 +2,7 @@
 
 > At first I loved a simple plan. Then I realized, with creeping horror, that they were serious. — xkcd
 
-Okay, this quote is about a song, but it reminds me of the generalized anxiety we all feel about making plans and then realizing that people actually expect us to follow them. We’re all keenly of the uncertain nature of building software, but we’re also equally aware that any business needs plans to function properly. There are real things like externally communicated dates, budgets, and market-critical features to consider, after all.
+Okay, this quote [is about a song](https://www.explainxkcd.com/wiki/index.php/97:_A_Simple_Plan), but it reminds me of the generalized anxiety we all feel about making plans and then realizing that people actually expect us to follow them. We’re all keenly of the uncertain nature of building software, but we’re also equally aware that any business needs plans to function properly. There are real things like externally communicated dates, budgets, and market-critical features to consider, after all.
 
 My goals for this post are to introduce a bridge between uncertainty and plans and to provide a shared planning language that considers both if probabilism is the best we can do. This won’t replace continual improvements teams should make internally – best discussed during sprint retrospectives – but it might help us surface uncertainties and to confidently plan around them even when all other efficiencies have been realized.
 
@@ -104,7 +104,7 @@ There is plenty of literature on the Internet for how to build and discuss a 3-p
 
 If we’re going to produce anything of practical use, we’re eventually going to need to fill in an actual duration value for our activities. Since our durations are now ranges, we need a way to get a value within the range. We’re going to borrow some things from math to do this.
 
-Traditionally in PERT, each activity is given a time of `t = (o + 4m + p) ÷ 6`. You might be able to spot that this is an average of the 3-point estimate that favors the most likely duration. So, the traditional assumption used in PERT is that actual completion times versus the estimate shows a _beta_ distribution, which in this context just means that you have a curve that favors the most likely value.
+Traditionally in [PERT](https://en.wikipedia.org/wiki/Program_evaluation_and_review_technique), each activity is given a time of `t = (o + 4m + p) ÷ 6`. You might be able to spot that this is an average of the 3-point estimate that favors the most likely duration. So, the traditional assumption used in PERT is that actual completion times versus the estimate shows a _beta_ distribution, which in this context just means that you have a curve that favors the most likely value.
 
 ```
 image 07
