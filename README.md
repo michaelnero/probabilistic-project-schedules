@@ -22,23 +22,17 @@ The image below illustrates a project with parallel activities and dependencies.
 
 Don’t worry about the boxes and text for now; we’ll get to those in just a second. Instead, focus on the path that each line takes through the Project Network. Can you spot the paths and dependencies?
 
-```
-image 01
-```
+![](images/slide-01.png)
 
 In every Project Network there are precedents and dependents (sometimes called subsequents). **Precedents** are activities that must be completed before dependent activities can start. We represent the set of precedents for a node `A` as `P(A)`. **Dependents** are activities that cannot start until precedent activities have completed. We represent the set of dependents for a node `A` as `D(A)`.
 
-```
-image 02
-```
+![](images/slide-02.png)
 
 ## Activity Node
 
 Projects Networks are made up of Activity Nodes. Each node represents an activity in a project, such as a coding task, an activity with a fixed time duration such as an experiment, or any arbitrary activity like waiting for an email.
 
-```
-image 03
-```
+![](images/slide-03.png)
 
 The **ID (Activity Identifier)** is a short, unique alphanumeric identifier assigned to each activity. The **Duration** is the number of days it takes to complete an activity. We’ll define ESD, EFD, LSD and LFD later.
 
@@ -50,9 +44,7 @@ The first step to build a project schedule is to complete the ID, Duration, ESD,
 
 **EFD (Earliest Finish Date)** is the earliest date that the activity can finish based on preceding logic and constraints. To calculate this for node `A` use `EFD(A) = ESD(A) + Duration(A)`. The value of EFD is interpreted as _end-of-day_.
 
-```
-image 04
-```
+![](images/slide-04.png)
 
 The forward pass in the example above was `A → B → C → D → E → F → G`. Some of you may notice that this is a breadth-first traversal.
 
@@ -67,9 +59,7 @@ Next, we’ll do a _backwards_ pass through the network to complete the LSD and 
 
 **LFD (Latest Finish Date)** is the latest that the activity can finish so that it does not delay the project completion date or any constraint. To calculate this for node `A`, use the earliest LSD in node `A`'s dependent set, `LFD(A) = min {LSD(j), j in D(A)}`. This value is interpreted as _end-of-day_.
 
-```
-image 05
-```
+![](images/slide-05.png)
 
 The backwards pass in the example above was `G → F → E → D → C → B → A`. Some of you may notice that this is a depth-first traversal.
 
@@ -81,9 +71,7 @@ Some interesting things that we surface in Step 2 is that there’s some “wigg
 
 The Critical Path set of activities includes activities where `LFD - EFD = 0`. It is especially important to pay attention to these activities since they can delay the project. The Critical Path for our example is `ADFG`.
 
-```
-image 06
-```
+![](images/slide-06.png)
 
 # What can be improved?
 
@@ -106,9 +94,7 @@ If we’re going to produce anything of practical use, we’re eventually going 
 
 Traditionally in [PERT](https://en.wikipedia.org/wiki/Program_evaluation_and_review_technique), each activity is given a time of `t = (o + 4m + p) ÷ 6`. You might be able to spot that this is an average of the 3-point estimate that favors the most likely duration. So, the traditional assumption used in PERT is that actual completion times versus the estimate shows a _beta_ distribution, which in this context just means that you have a curve that favors the most likely value.
 
-```
-image 07
-```
+![Example of a beta distribution](images/beta.png)
 
 For now, we’re also going to assume a beta distribution since it models the range for 3-point estimates accurately in most cases. There’s more to be said about choosing an appropriate distribution for your range statement. For example, you can use a different distribution for each estimate depending on your confidence in the estimate. I will explain more in a later post. My advice in the meantime is that if you see pessimistically weighted estimates, ask your team about why this is the case and see if there’s something the team can do to have as much confidence in your most likely estimate as possible.
 
@@ -120,15 +106,11 @@ What’s interesting is that if the EFD and LFD values are variable, then the pr
 
 Running simulations like this and developing probabilistic statements about the outcome is called a Monte Carlo simulation. It’s hard to do necessary thousands of simulations by hand – you’ll need to use Excel or get a developer to help – so I won’t draw out an example here. Instead, I’ll walk through what you’ll get with this approach. I’ll also share my Excel files at the end of this post so you can use them for your own projects.
 
-```
-image 08
-```
+![](images/slide-07.png)
 
 Running simulations of our example above, we can determine that the project will complete anywhere between 48 and 84 workdays. We’re also able to determine the probability of the number of workdays it’ll take to finish the project, which is illustrated below.
 
-```
-image 09
-```
+![](images/mcs.png)
 
 Some probabilities of the number of workdays to finish the project are below, which you can get by following the “% Cumulative” curve of the chart above in Excel.
 
