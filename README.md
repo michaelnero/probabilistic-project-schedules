@@ -4,7 +4,7 @@
 
 Okay, this quote [is about a song](https://www.explainxkcd.com/wiki/index.php/97:_A_Simple_Plan), but it reminds me of the generalized anxiety we all feel about making plans and then realizing that people actually expect us to follow them. We’re all keenly aware of the uncertain nature of building software, but we’re also equally aware that any business needs plans to function properly. There are real things like externally communicated dates, budgets, and market-critical features to consider, after all.
 
-My goals for this post are to introduce a bridge between uncertainty and plans and to provide a shared planning language that considers both if probabilism is the best we can do. This won’t replace continual improvements teams should make internally – best discussed during sprint retrospectives – but it might help us surface uncertainties and to confidently plan around them even when all other efficiencies have been realized.
+My goals for this post are to introduce a bridge between uncertainty and planning and to provide a shared planning language that considers both if probabilism is the best we can do. This won’t replace continual improvements teams should make internally – best discussed during sprint retrospectives – but it might help us surface uncertainties and to confidently plan around them even when all other efficiencies have been realized.
 
 I’ll first walk through how to build a project schedule by hand simplified with fixed activity durations. Then, I’ll introduce duration range statements. The final product will be a Monte Carlo simulation from which we can make statements of probability about the project’s completion date.
 
